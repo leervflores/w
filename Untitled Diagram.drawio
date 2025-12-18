@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 OPR/124.0.0.0" version="29.2.7">
+  <diagram name="Page-1" id="TLr8dgd0NjPcwtEgpqmM">
+    <mxGraphModel dx="1434" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageEnabled="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Internet -->
+        <mxCell id="internet" value="Internet" style="shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="50" width="120" height="80" as="geometry" />
+        </mxCell>
+        <!-- Router / Firewall -->
+        <mxCell id="router_firewall" value="Router / Firewall" style="shape=mxgraph.cisco.security.firewall;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="180" width="120" height="80" as="geometry" />
+        </mxCell>
+        <!-- Internal Network (Container) -->
+        <mxCell id="internal_network" value="Internal Network" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;container=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="300" width="620" height="500" as="geometry" />
+        </mxCell>
+        <!-- Windows Client 1 (relative to internal_network) -->
+        <mxCell id="win_client_1" value="Windows Client 1" style="shape=computer;whiteSpace=wrap;html=1;" vertex="1" parent="internal_network">
+          <mxGeometry x="50" y="50" width="100" height="80" as="geometry" />
+        </mxCell>
+        <!-- Client 2 (relative to internal_network) -->
+        <mxCell id="client_2" value="Client 2" style="shape=computer;whiteSpace=wrap;html=1;" vertex="1" parent="internal_network">
+          <mxGeometry x="470" y="50" width="100" height="80" as="geometry" />
+        </mxCell>
+        <!-- Windows Server VM (relative to internal_network) -->
+        <mxCell id="win_server_vm" value="&lt;b&gt;Windows Server VM&lt;/b&gt;&lt;br&gt;- AD DS&lt;br&gt;- File Sharing&lt;br&gt;- Group Policy" style="shape=server;whiteSpace=wrap;html=1;align=left;spacingLeft=5;" vertex="1" parent="internal_network">
+          <mxGeometry x="210" y="170" width="200" height="100" as="geometry" />
+        </mxCell>
+        <!-- Local Backup (relative to internal_network) -->
+        <mxCell id="local_backup" value="Local Backup&lt;br&gt;(Daily)" style="shape=mxgraph.storage.hard_disk;whiteSpace=wrap;html=1;" vertex="1" parent="internal_network">
+          <mxGeometry x="150" y="350" width="100" height="80" as="geometry" />
+        </mxCell>
+        <!-- Cloud / Off-site Backup (relative to internal_network) -->
+        <mxCell id="cloud_backup" value="Cloud / Off-site&lt;br&gt;Backup (Weekly)" style="shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="internal_network">
+          <mxGeometry x="370" y="350" width="120" height="80" as="geometry" />
+        </mxCell>
+        <!-- Connections (parented to layer 1, using absolute coordinates for source/target cells) -->
+        <!-- Internet -> Router / Firewall -->
+        <mxCell id="conn_1" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="internet" target="router_firewall">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Router / Firewall -> Internal Network -->
+        <mxCell id="conn_2" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="router_firewall" target="internal_network">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Windows Client 1 -> Windows Server VM -->
+        <mxCell id="conn_3" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="win_client_1" target="win_server_vm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Client 2 -> Windows Server VM -->
+        <mxCell id="conn_4" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="client_2" target="win_server_vm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Windows Server VM -> Local Backup -->
+        <mxCell id="conn_5" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="win_server_vm" target="local_backup">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Windows Server VM -> Cloud / Off-site Backup -->
+        <mxCell id="conn_6" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="win_server_vm" target="cloud_backup">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
